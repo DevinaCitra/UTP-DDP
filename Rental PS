@@ -1,0 +1,118 @@
+/*
+	Nama ANggota :
+	Anindya Salsabila    (2217051113)
+	Intan Purnama Sari   (2217051050)
+	Devina Citra Felisha (2217051122)
+
+*/
+
+#include <iostream>
+using namespace std;
+
+//deklarasi harga menggunakan array
+int harga[3] = {3000, 5000, 8000};
+
+//deklarasi variabel
+int pilihan, total_harga;
+float jam, kembalian, bayar;
+
+void header()
+{
+	cout<<"=====================SELAMAT DATANG PELANGGAN SETIA============================\n";
+	cout<<"==========================DI RENTAL PS ABADI===================================\n";
+	cout<<"\nPricelist\t\t : "<<endl;
+	cout<<"Playstation 2\t\t : 3000/jam "<<endl;
+	cout<<"Playstation 3\t\t : 5000/jam "<<endl;
+	cout<<"Playstation 4\t\t : 8000/jam "<<endl;
+	cout<<" ============================================================================== ";
+}
+
+//fungsi pilihan playstation yang tersedia
+void pilih()
+{
+	cout<<"\nPilih playstation yang kamu inginkan (2/3/4)\t: ";
+	cin>>pilihan;
+}
+
+//fungsi jika uang yang dibayarkan tidak sesuai terhadap total harga
+void uang_kurang()
+{
+	while (bayar < total_harga){
+	kembalian = total_harga - bayar;
+	cout<<"Uang kamu kurang Rp."<<kembalian<<endl;
+	cout<<"\nMAAF KAMU TIDAK DAPAT BERMAIN";
+	break;
+	}
+}
+
+//fungsi jika uang yang dibayarkan sesuai/lebih terhadap total harga
+void uang_cukup()
+{
+	while (bayar >= total_harga){
+	kembalian = bayar - total_harga;
+	cout<<"Kembalian : Rp."<<kembalian<<endl;
+	cout<<"\t\nSELAMAT BERMAIN";
+	break;
+	}
+}
+
+void program()
+{
+	//untuk menentukan jika pilihan sesuai dengan ps yang tersedia
+	if(pilihan==2){
+			cout<<"\n\tPLAYSTATION 2 "<<endl;
+			cout<<"\nLama Main (jam) \t: ";
+			cin>>jam;
+			cout<<"Total Harga \t\t: Rp. ";
+			total_harga = jam * harga[0];
+			cout<<total_harga;
+			cout<<endl;
+			cout<<"Total Uang Kamu \t: Rp. ";
+			cin>>bayar;
+			uang_kurang();	
+			uang_cukup();
+					
+	}else if(pilihan==3){
+			cout<<"\n\tPLAYSTATION 3 "<<endl;
+			cout<<"\nLama Main (jam) \t: ";
+			cin>>jam;
+			cout<<"Total Harga \t\t: Rp. ";
+			total_harga = jam * harga[1];
+			cout<<total_harga;
+			cout<<endl;
+			cout<<"Total Uang Kamu \t: Rp. ";
+			cin>>bayar;
+			uang_kurang();	
+			uang_cukup();
+			
+	}else if(pilihan==4){
+			cout<<"\n\tPLAYSTATION 4 "<<endl;
+			cout<<"\nLama Main (jam) \t: ";
+			cin>>jam;
+			cout<<"Total Harga \t\t: Rp. ";
+			total_harga = jam * harga[2];
+			cout<<total_harga;
+			cout<<endl;
+			cout<<"Total Uang Kamu \t: Rp. ";
+			cin>>bayar;
+			uang_kurang();	
+			uang_cukup();
+				
+// untuk menentukan jika pilihan ps tidak sesuai					
+	}else if(pilihan<2){
+		cout<<"\npilihan kamu tidak tersedia";
+		
+	}else if(pilihan>4){
+		cout<<"\npilihan kamu tidak tersedia";
+	}
+}
+
+int main()
+{	
+	//pemanggian fungsi yang telah dibuat
+	header();
+	pilih();
+	program();
+	
+	return 0;
+}
